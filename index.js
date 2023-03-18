@@ -15,10 +15,6 @@ import  {userRoutes} from './routes/usersRoutes.js';
 import  {postRoutes} from './routes/postRoutes.js';
 import { verifyToken } from './middleware/middleware.js';
 
-import { User } from './models/UserModel.js';
-import { Post } from './models/PostModel.js';
-import {posts, users } from './fakeData/fakeData.js'
-
 
 //  CONFIGURATIONS
 const __filename = fileURLToPath(import.meta.url);
@@ -68,7 +64,5 @@ mongoose.connect(process.env.MONGODB_URL,{
     useUnifiedTopology : true
 }).then(() => {
     app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
-    // User.insertMany(users);
-    // Post.insertMany(posts);
 })
 .catch((err) => console.log(`${err} is not connected`));
