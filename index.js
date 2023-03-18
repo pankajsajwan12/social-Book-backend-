@@ -52,8 +52,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage});
 
 // ROUTES WITH FILES
-app.post("/auth/register", upload.single("avatar"), register)
-app.post("/posts" , verifyToken , createUserPost)
+app.post("/auth/register", upload.single("picture"), register)
+app.post("/posts" , verifyToken , upload.single("picture") ,createUserPost)
 
 // ROUTES
 app.use("/auth", loginRoutes);
